@@ -14,11 +14,6 @@ namespace InventoryManagement
         //public static 
         //public static 
         //public static 
-        //public static 
-        //public static 
-        //public static 
-        //public static 
-        //public static 
-        //public static 
+        
     }
 }
