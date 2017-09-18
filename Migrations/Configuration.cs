@@ -1,5 +1,6 @@
 namespace InventoryManagement.Migrations
 {
+    using InventoryManagement.Models;
     using System;
     using System.Data.Common;
     using System.Data.Entity;
@@ -21,17 +22,18 @@ namespace InventoryManagement.Migrations
         protected override void Seed(InventoryManagement.Context.InventoryDBContext context)
         {
             //  This method will be called after migrating to the latest version.
-
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+
+            User user = new User()
+            {
+                AccessFailedCount=0, Address="Wakad, Pune 411057", Email="dipak.a.akhade9192@gmail.com",
+                IsDisabled=false, LastLoginTime=DateTime.Now, PhoneNumber=8007227997, UserId=1,
+                Username ="dipakakhade", Password="password"
+            };
+            context.Users.AddOrUpdate(user);
+            context.SaveChanges();
+
         }
         public class MySqlHistoryContext : HistoryContext
         {

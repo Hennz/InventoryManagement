@@ -33,7 +33,17 @@ namespace InventoryManagement.Views
 
         private void btnLogIn_MouseEnter(object sender, MouseEventArgs e)
         {
+        }
+
+        private void btnLogIn_DragOver(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void btnLogIn_MouseUp(object sender, MouseButtonEventArgs e)
+        {
             btnLogIn.Background = Brushes.Green;
+
         }
     }
 }

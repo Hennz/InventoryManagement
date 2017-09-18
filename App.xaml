@@ -8,7 +8,7 @@
         <!-- STYLE FOR CONTROLS  -->
         <Style x:Key="ControlStyle" TargetType="{x:Type Control}">
             <Setter Property="FontFamily" Value="Helvetica Neue"/>
-            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontSize" Value="18"/>
             <Setter Property="Foreground" Value="Red" />
             <Setter Property="FontStyle" Value="Italic" />
         </Style>
