@@ -23,5 +23,17 @@ namespace InventoryManagement.Views
         {
             InitializeComponent();
         }
+
+       
+
+        private void btnLogIn_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void btnLogIn_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnLogIn.Background = Brushes.Green;
+        }
     }
 }
