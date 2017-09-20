@@ -135,6 +135,9 @@
     <Compile Include="ServiceInterfaces\ILoginValidation.cs" />
     <Compile Include="Services\LoginValidation.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="Views\AdminHome.xaml.cs">
+      <DependentUpon>AdminHome.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -142,6 +145,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AdminHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -184,6 +191,13 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\AcceptMark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Hide.jpg" />
+    <Resource Include="Images\Show.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Supermarket-queues.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

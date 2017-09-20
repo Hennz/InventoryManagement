@@ -11,14 +11,18 @@ namespace InventoryManagement.Services
     public class LoginValidation: ILoginValidation
     {
         
-        public string UsernameValidation(string userName)
+        public void UsernamePasswordValidation(string userName, string password)
         {
-            if (string.IsNullOrEmpty(userName))
-                return string.Format("Invalid username!");
-            return string.Format("Valid username!");
+            if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(password))
+                throw new Exception("Invalid username or password!");
 
-            //InventoryDBContext inventoryDBContext = new InventoryDBContext();
-            //inventoryDBContext.Users.
+            InventoryDBContext inventoryDBContext = new InventoryDBContext();
+            var users = inventoryDBContext.Users.ToList().Select(x=>x.Username==userName).FirstOrDefault();
+
+            if(!users)
+            {
+                throw new Exception("User identificaion failed!");
+            }
         }
     }
 }

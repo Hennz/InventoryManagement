@@ -7,12 +7,35 @@
         
         <!-- STYLE FOR BUTTONS  -->
         <Style x:Key="ButtonStyle" TargetType="{x:Type Control}">
-            <Setter Property="FontFamily" Value="Helvetica Neue"/>
+            <!--<Setter Property="FontFamily" Value="Helvetica Neue"/>
             <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Foreground" Value="White" />
             <Setter Property="FontStyle" Value="Normal" />
-            <Setter Property="Background" Value="LawnGreen" />
+            --><!--<Setter Property="Background" Value="LawnGreen" />--><!--
             <Setter Property="Height" Value="25" />
+            <Setter Property="Width" Value="150" />
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,2">
+                        <GradientStop Color="#D80000" Offset=".2" />
+                        <GradientStop Color="#780000" Offset=".5" />
+                        <GradientStop Color="#280000" Offset="1" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>-->
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="11px"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" >
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" >
+                        <GradientStop Color="#FFFFD190" Offset="0.2"/>
+                        <GradientStop Color="Orange" Offset="0.85"/>
+                        <GradientStop Color="#FFFFD190" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style TargetType="Button" BasedOn="{StaticResource ButtonStyle}"/>       
 

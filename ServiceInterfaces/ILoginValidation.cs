@@ -8,6 +8,6 @@ namespace InventoryManagement.ServiceInterfaces
 {
     public interface ILoginValidation
     {
-        string UsernameValidation(string userName);
+        void UsernamePasswordValidation(string userName, string password);
     }
 }

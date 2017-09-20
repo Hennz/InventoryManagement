@@ -4,6 +4,7 @@ using InventoryManagement.Services;
 using SimpleInjector;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -27,7 +28,8 @@ namespace InventoryManagement.Views
     public partial class LoginWindow : Window
     {
         private DispatcherTimer dispatcherTimer;
-       
+        private string AppPath;
+
         public LoginWindow()
         {
             InitializeComponent();
@@ -36,6 +38,12 @@ namespace InventoryManagement.Views
             dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 2);
+
+            //set the source for hideShowImage
+            AppPath = Directory.GetCurrentDirectory();
+            ImgShowHide.Source = new BitmapImage(new Uri("F:\\InventoryManagement\\InventoryManagement\\Images\\Show.jpg"));
+            ImgShowHide.Visibility = Visibility.Hidden;
+
         }
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
@@ -52,12 +60,12 @@ namespace InventoryManagement.Views
             var user = context.Users.FirstOrDefault();
             var loginValidationService = new LoginValidation();
 
-            var result = loginValidationService.UsernameValidation(tbUserName.Text.ToString());
+            loginValidationService.UsernamePasswordValidation(tbUserName.Text.ToString(), tbxPassword.Password.ToString());
 
             if (user.Username == tbUserName.Text && user.Password == tbxPassword.Password)
             {
-                //MessageBox.Show("Login Successfull!");
-                MessageBox.Show(result);
+                AdminHome adminHome = new AdminHome();
+                adminHome.Show();
             }
             else
             {
@@ -66,9 +74,45 @@ namespace InventoryManagement.Views
 
                 //Start the timer
                 dispatcherTimer.Start();
-                MessageBox.Show(result);
 
             }
         }
+
+        private void ImgShowHide_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ShowPassword();
+        }
+        private void ImgShowHide_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            HidePassword();
+        }
+        private void ImgShowHide_MouseLeave(object sender, MouseEventArgs e)
+        {
+            HidePassword();
+        }
+        private void ShowPassword()
+        {
+            ImgShowHide.Source = new BitmapImage(new Uri("F:\\InventoryManagement\\InventoryManagement\\Images\\Hide.jpg"));
+            txtVisiblePasswordbox.Visibility = Visibility.Visible;
+            tbxPassword.Visibility = Visibility.Hidden;
+            txtVisiblePasswordbox.Text = tbxPassword.Password;
+        }
+        private void HidePassword()
+        {
+            ImgShowHide.Source = new BitmapImage(new Uri("F:\\InventoryManagement\\InventoryManagement\\Images\\Show.jpg"));
+            txtVisiblePasswordbox.Visibility = Visibility.Hidden;
+            tbxPassword.Visibility = Visibility.Visible;
+            tbxPassword.Focus();
+        }
+
+        private void tbxPassword_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (tbxPassword.Password.Length > 0)
+                ImgShowHide.Visibility = Visibility.Visible;
+            else
+                ImgShowHide.Visibility = Visibility.Hidden;
+        }
+
+     
     }
 }
