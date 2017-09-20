@@ -13,7 +13,6 @@
 [Rr]eleases/
 x64/
 x86/
-build/
 bld/
 [Bb]in/
 [Oo]bj/
@@ -183,3 +182,6 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+/Viewbox/Viewbox.Tests/BusinessLogicLayerTest/ArchiveAssistantBoTest/ArchiveTestFiles/Archive_1/Sample 1.pdf
+/Viewbox/Viewbox.Tests/BusinessLogicLayerTest/ArchiveAssistantBoTest/ArchiveTestFiles/Archive_1/MetaDATAFile.CSV
+/Viewbox/Viewbox.Tests/Controller/Api/TestDataInputFormDynamicController/ClearFieldValuesTest - Copy.cs

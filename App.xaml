@@ -5,14 +5,16 @@
              StartupUri="Views/LoginWindow.xaml">
     <Application.Resources>
         
-        <!-- STYLE FOR CONTROLS  -->
-        <Style x:Key="ControlStyle" TargetType="{x:Type Control}">
+        <!-- STYLE FOR BUTTONS  -->
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Control}">
             <Setter Property="FontFamily" Value="Helvetica Neue"/>
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="Foreground" Value="Red" />
-            <Setter Property="FontStyle" Value="Italic" />
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontStyle" Value="Normal" />
+            <Setter Property="Background" Value="LawnGreen" />
+            <Setter Property="Height" Value="25" />
         </Style>
-        <Style TargetType="Button" BasedOn="{StaticResource ControlStyle}"/>
-        
+        <Style TargetType="Button" BasedOn="{StaticResource ButtonStyle}"/>       
+
     </Application.Resources>
 </Application>
