@@ -125,6 +125,13 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="MySqlConfiguration.cs" />
     <Compile Include="MySqlHistoryContext.cs" />
+    <Compile Include="Repositories\RoleRepository.cs" />
+    <Compile Include="Repositories\ItemRepository.cs" />
+    <Compile Include="Repositories\CustomerRepository.cs" />
+    <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\BillRepository.cs" />
+    <Compile Include="Repositories\SaleRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="ServiceInterfaces\ILoginValidation.cs" />
     <Compile Include="Services\LoginValidation.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />

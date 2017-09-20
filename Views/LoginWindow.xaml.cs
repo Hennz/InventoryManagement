@@ -66,6 +66,8 @@ namespace InventoryManagement.Views
 
                 //Start the timer
                 dispatcherTimer.Start();
+                MessageBox.Show(result);
+
             }
         }
     }
