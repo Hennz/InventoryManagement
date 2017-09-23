@@ -56,25 +56,32 @@ namespace InventoryManagement.Views
 
         private void btnLogIn_Click(object sender, RoutedEventArgs e)
         {
-            var context = new InventoryDBContext();
-            var user = context.Users.FirstOrDefault();
-            var loginValidationService = new LoginValidation();
-
-            loginValidationService.UsernamePasswordValidation(tbUserName.Text.ToString(), tbxPassword.Password.ToString());
-
-            if (user.Username == tbUserName.Text && user.Password == tbxPassword.Password)
+            try
             {
-                AdminHome adminHome = new AdminHome();
-                adminHome.Show();
+                var context = new InventoryDBContext();
+                var user = context.Users.FirstOrDefault();
+                var loginValidationService = new LoginValidation();
+
+                loginValidationService.UsernamePasswordValidation(tbUserName.Text.ToString(), tbxPassword.Password.ToString());
+
+                if (user.Username == tbUserName.Text && user.Password == tbxPassword.Password)
+                {
+                    AdminHome adminHome = new AdminHome();
+                    adminHome.Show();
+                }
+                else
+                {
+                    //Things which happen before the timer starts
+                    lableWrongPassword.Visibility = Visibility.Visible;
+
+                    //Start the timer
+                    dispatcherTimer.Start();
+
+                }
             }
-            else
+            catch(Exception ex)
             {
-                //Things which happen before the timer starts
-                lableWrongPassword.Visibility = Visibility.Visible;
-
-                //Start the timer
-                dispatcherTimer.Start();
-
+                MessageBox.Show(ex.Message.ToString(),"Error");
             }
         }
 
