@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 F:\InventoryManagement\InventoryManagement\App.xaml
-11390514949
+4-1999085974
 
-241378658319
+36-757142182
 84-1716418115
-Views\LoginWindow.xaml;
+Theme\AppTheme.xaml;Views\UserRegistration.xaml;Views\AdminHome.xaml;Views\LoginWindow.xaml;
 
 False
 

@@ -23,5 +23,11 @@ namespace InventoryManagement.Views
         {
             InitializeComponent();
         }
+        private void btnUserRegistration_Click(object sender, RoutedEventArgs e)
+        {
+            UserRegistration addCashier = new UserRegistration();
+
+            addCashier.Show();
+        }
     }
 }

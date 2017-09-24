@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace InventoryManagement.ServiceInterfaces
 {
-    public interface ILoginValidation
+    public interface IPasswordPolicyValidation
     {
-        void UsernamePasswordValidation(string userName, string password);
-        bool IsUsernameAvailable(string username);
+        int GetPasswordValidation(string password);
     }
 }

@@ -17,12 +17,22 @@ namespace InventoryManagement.Services
                 throw new Exception("Invalid username or password!");
 
             InventoryDBContext inventoryDBContext = new InventoryDBContext();
-            var users = inventoryDBContext.Users.ToList().Select(x=>x.Username==userName).FirstOrDefault();
+            var users = inventoryDBContext.Users.ToList().Select(x=>x.Username.ToLower()==userName.ToLower()).FirstOrDefault();
 
             if(!users)
             {
                 throw new Exception("User identificaion failed!");
             }
+        }
+        public bool IsUsernameAvailable(string username)
+        {
+            if (string.IsNullOrEmpty(username))
+                return false;
+
+            InventoryDBContext inventoryDBContext = new InventoryDBContext();
+            var user = inventoryDBContext.Users.ToList().Select(x => x.Username.ToLower() == username.ToLower()).FirstOrDefault();
+
+            return !user;//if user is exist, return false otherwise true
         }
     }
 }

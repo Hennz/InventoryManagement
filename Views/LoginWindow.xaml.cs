@@ -64,7 +64,7 @@ namespace InventoryManagement.Views
 
                 loginValidationService.UsernamePasswordValidation(tbUserName.Text.ToString(), tbxPassword.Password.ToString());
 
-                if (user.Username == tbUserName.Text && user.Password == tbxPassword.Password)
+                if (user.Username.ToLower() == tbUserName.Text.ToLower() && user.Password == tbxPassword.Password)
                 {
                     AdminHome adminHome = new AdminHome();
                     adminHome.Show();

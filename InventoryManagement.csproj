@@ -133,8 +133,14 @@
     <Compile Include="Repositories\SaleRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="ServiceInterfaces\ILoginValidation.cs" />
+    <Compile Include="ServiceInterfaces\IPasswordPolicyValidation.cs" />
+    <Compile Include="ServiceInterfaces\IRoleRepository.cs" />
     <Compile Include="Services\LoginValidation.cs" />
+    <Compile Include="Services\PasswordPolicyValidation.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="Views\UserRegistration.xaml.cs">
+      <DependentUpon>UserRegistration.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AdminHome.xaml.cs">
       <DependentUpon>AdminHome.xaml</DependentUpon>
     </Compile>
@@ -146,6 +152,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Theme\AppTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserRegistration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -202,6 +212,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Supermarket-queues.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\RejectMark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

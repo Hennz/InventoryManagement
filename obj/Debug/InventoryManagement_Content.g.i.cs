@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("bluestart.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/imgrejectmark.png")]
 
 
