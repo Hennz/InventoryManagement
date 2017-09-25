@@ -31,7 +31,7 @@
             <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
         <Button Grid.Column="1" Grid.Row="2" Height="40" Width="170" FontSize="14" Style="{StaticResource ButtonStyle}" Name="btnUserRegistration" Content="User Registration" Click="btnUserRegistration_Click"/>
-        <Button Grid.Column="1" Grid.Row="3" Height="40" Width="170" FontSize="14" Style="{StaticResource ButtonStyle}" Name="btnAddProducts" Content="Add Products"/>
+        <Button Grid.Column="1" Grid.Row="3" Height="40" Width="170" FontSize="14" Style="{StaticResource ButtonStyle}" Name="btnAddProducts" Content="Add Products" Click="btnAddProducts_Click"/>
         <Button Grid.Column="1" Grid.Row="4" Height="40" Width="170" FontSize="14" Style="{StaticResource ButtonStyle}" Name="btnCashierLoginDetails" Content="Cashier Login Details"/>
         <Button Grid.Column="3" Grid.Row="2" Height="40" Width="170" FontSize="14" Style="{StaticResource ButtonStyle}" Name="btnCashierDetailsByDate" Content="Cashier Details By Date"/>
         <Button Grid.Column="3" Grid.Row="3" Height="40" Width="170" FontSize="14" Style="{StaticResource ButtonStyle}" Name="btnAllTransactions" Content="All Transactions"/>

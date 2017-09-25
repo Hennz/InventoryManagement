@@ -15,22 +15,16 @@ using System.Windows.Shapes;
 namespace InventoryManagement.Views
 {
     /// <summary>
-    /// Interaction logic for AdminHome.xaml
+    /// Interaction logic for CashierHome.xaml
     /// </summary>
-    public partial class AdminHome : Window
+    public partial class CashierHome : Window
     {
-        public AdminHome()
+        public CashierHome()
         {
             InitializeComponent();
         }
-        private void btnUserRegistration_Click(object sender, RoutedEventArgs e)
-        {
-            UserRegistration addCashier = new UserRegistration();
 
-            addCashier.Show();
-        }
-
-        private void btnAddProducts_Click(object sender, RoutedEventArgs e)
+        private void btnBill_Click(object sender, RoutedEventArgs e)
         {
 
         }

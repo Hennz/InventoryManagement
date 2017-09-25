@@ -115,6 +115,10 @@
     <Compile Include="Migrations\201709181539022_Initial.Designer.cs">
       <DependentUpon>201709181539022_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709251854322_AddedWholeSalePriceInItem.cs" />
+    <Compile Include="Migrations\201709251854322_AddedWholeSalePriceInItem.Designer.cs">
+      <DependentUpon>201709251854322_AddedWholeSalePriceInItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bill.cs" />
     <Compile Include="Models\Category.cs" />
@@ -138,6 +142,12 @@
     <Compile Include="Services\LoginValidation.cs" />
     <Compile Include="Services\PasswordPolicyValidation.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="Views\AddProduct.xaml.cs">
+      <DependentUpon>AddProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CashierHome.xaml.cs">
+      <DependentUpon>CashierHome.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserRegistration.xaml.cs">
       <DependentUpon>UserRegistration.xaml</DependentUpon>
     </Compile>
@@ -152,6 +162,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Theme\AppTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CashierHome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -185,6 +203,9 @@
     <EmbeddedResource Include="Migrations\201709181539022_Initial.resx">
       <DependentUpon>201709181539022_Initial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709251854322_AddedWholeSalePriceInItem.resx">
+      <DependentUpon>201709251854322_AddedWholeSalePriceInItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -215,6 +236,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\RejectMark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\shopping-cart.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

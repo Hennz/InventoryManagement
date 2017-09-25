@@ -57,7 +57,7 @@ namespace InventoryManagement.Views
             }
             else
             {
-                MessageBox.Show("Please, fill all fields!");
+                MessageBox.Show("Please, Check all fields!");
             }
         }
 
@@ -109,13 +109,14 @@ namespace InventoryManagement.Views
 
         private void tbxPhoneNumber_TextChanged(object sender, TextChangedEventArgs e)
         {
+            //need to add this code in lost focus event
             var textbox = sender as TextBox;
             var input = textbox.Text;
             int length = input.Length;
             long n;
-            if (!long.TryParse(input, out n))
+            if (!long.TryParse(input, out n) && length!=10)
             {
-                MessageBox.Show("Invalid Phone Number");
+                MessageBox.Show("Invalid Mobile Number");
                 gotPhoneNumber = false;
             }
             else

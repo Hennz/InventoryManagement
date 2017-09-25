@@ -1,12 +1,11 @@
-﻿<Window x:Class="InventoryManagement.Views.UserRegistration"
+﻿<Window x:Class="InventoryManagement.Views.AddProduct"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InventoryManagement.Views"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
-        Title="Add Cashier" Height="600" Width="650">
-    
+        Height="600" Width="650" Title="AddProduct">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.15*"></RowDefinition>
@@ -15,7 +14,7 @@
         </Grid.RowDefinitions>
         <!--Header-->
         <Border Grid.Row="0" Background="Gainsboro">
-            <TextBlock Name="Reg" Text="Registration Form"  
+            <TextBlock Name="Reg" Text="Add Product"  
             TextAlignment="Center" VerticalAlignment="Center"  
             FontSize="30" FontWeight="Black" FontStyle="Normal"></TextBlock>
         </Border>
@@ -49,15 +48,15 @@
             <Label Grid.Column="1" Grid.Row="7" Style="{StaticResource LabelStyle}" Content="Address"/>
             <Label Grid.Column="1" Grid.Row="8" Style="{StaticResource LabelStyle}" Content="Role"/>
 
-            <TextBox     Grid.Column="2" Grid.Row="0" Style="{StaticResource TextBoxStyle}"     Name="tbxFirstName" TextChanged="tbxFirstName_TextChanged"/>
-            <TextBox     Grid.Column="2" Grid.Row="1" Style="{StaticResource TextBoxStyle}"     Name="txbLastName" TextChanged="txbLastName_TextChanged"/>
-            <TextBox     Grid.Column="2" Grid.Row="2" Style="{StaticResource TextBoxStyle}"     Name="tbxUsername" TextChanged="tbxUsername_TextChanged" IsReadOnly="True"/>
-            <PasswordBox Grid.Column="2" Grid.Row="3" Style="{StaticResource PasswordBoxStyle}" Name="tbxPassword" MaxLength="14" PasswordChanged="tbxPassword_PasswordChanged"/>
-            <PasswordBox Grid.Column="2" Grid.Row="4" Style="{StaticResource PasswordBoxStyle}" Name="tbxConfirmPassword" PasswordChanged="tbxConfirmPassword_PasswordChanged"/>
-            <TextBox     Grid.Column="2" Grid.Row="5" Style="{StaticResource TextBoxStyle}"     Name="tbxPhoneNumber" MaxLength="10"  TextChanged="tbxPhoneNumber_TextChanged" />
-            <TextBox     Grid.Column="2" Grid.Row="6" Style="{StaticResource TextBoxStyle}"     Name="tbxEmail" LostFocus="tbxEmail_LostFocus" TextChanged="tbxEmail_TextChanged" />
-            <TextBox     Grid.Column="2" Grid.Row="7" Style="{StaticResource TextBoxStyle}"     Name="tbxAddress" LostFocus="tbxAddress_LostFocus" />
-            <ComboBox    Grid.Column="2" Grid.Row="8" Style="{StaticResource ComboBoxStyle}"    Name="comboBoxRoles" />
+            <TextBox     Grid.Column="2" Grid.Row="0" Style="{StaticResource TextBoxStyle}"     />
+            <TextBox     Grid.Column="2" Grid.Row="1" Style="{StaticResource TextBoxStyle}"     />
+            <TextBox     Grid.Column="2" Grid.Row="2" Style="{StaticResource TextBoxStyle}"     />
+            <PasswordBox Grid.Column="2" Grid.Row="3" Style="{StaticResource PasswordBoxStyle}" />
+            <PasswordBox Grid.Column="2" Grid.Row="4" Style="{StaticResource PasswordBoxStyle}" />
+            <TextBox     Grid.Column="2" Grid.Row="5" Style="{StaticResource TextBoxStyle}"     />
+            <TextBox     Grid.Column="2" Grid.Row="6" Style="{StaticResource TextBoxStyle}"     />
+            <TextBox     Grid.Column="2" Grid.Row="7" Style="{StaticResource TextBoxStyle}"     />
+            <ComboBox    Grid.Column="2" Grid.Row="8" Style="{StaticResource ComboBoxStyle}"    />
 
             <Label Grid.Column="3" Grid.Row="3" Name="labelPasswordPolicy" Content="Atleast 1 digit.&#xA;Total 8 letters." Foreground="Red" Visibility="Hidden"/>
 
@@ -72,6 +71,6 @@
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Content="Reset" Style="{StaticResource ButtonStyle}" Name="btnReset" Click="btnReset_Click"/>
             <Button Grid.Column="1" Content="Submit" Name="btnSubmit" Style="{StaticResource ButtonStyle}" Click="btnSubmit_Click"/>
-        </Grid>   
+        </Grid>
     </Grid>
 </Window>

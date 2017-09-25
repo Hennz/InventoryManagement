@@ -57,14 +57,12 @@ namespace InventoryManagement.Views
         private void btnLogIn_Click(object sender, RoutedEventArgs e)
         {
             try
-            {
-                var context = new InventoryDBContext();
-                var user = context.Users.FirstOrDefault();
+            {                
                 var loginValidationService = new LoginValidation();
 
-                loginValidationService.UsernamePasswordValidation(tbUserName.Text.ToString(), tbxPassword.Password.ToString());
+                var isValid = loginValidationService.UsernamePasswordValidation(tbUserName.Text.ToString(), tbxPassword.Password.ToString());
 
-                if (user.Username.ToLower() == tbUserName.Text.ToLower() && user.Password == tbxPassword.Password)
+                if (isValid)
                 {
                     AdminHome adminHome = new AdminHome();
                     adminHome.Show();
@@ -73,10 +71,8 @@ namespace InventoryManagement.Views
                 {
                     //Things which happen before the timer starts
                     lableWrongPassword.Visibility = Visibility.Visible;
-
                     //Start the timer
                     dispatcherTimer.Start();
-
                 }
             }
             catch(Exception ex)
