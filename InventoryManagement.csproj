@@ -119,6 +119,10 @@
     <Compile Include="Migrations\201709251854322_AddedWholeSalePriceInItem.Designer.cs">
       <DependentUpon>201709251854322_AddedWholeSalePriceInItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709251907509_AddedBrandNameInItem.cs" />
+    <Compile Include="Migrations\201709251907509_AddedBrandNameInItem.Designer.cs">
+      <DependentUpon>201709251907509_AddedBrandNameInItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bill.cs" />
     <Compile Include="Models\Category.cs" />
@@ -136,9 +140,11 @@
     <Compile Include="Repositories\BillRepository.cs" />
     <Compile Include="Repositories\SaleRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="ServiceInterfaces\IGeneralService.cs" />
     <Compile Include="ServiceInterfaces\ILoginValidation.cs" />
     <Compile Include="ServiceInterfaces\IPasswordPolicyValidation.cs" />
     <Compile Include="ServiceInterfaces\IRoleRepository.cs" />
+    <Compile Include="Services\GeneralService.cs" />
     <Compile Include="Services\LoginValidation.cs" />
     <Compile Include="Services\PasswordPolicyValidation.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
@@ -205,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709251854322_AddedWholeSalePriceInItem.resx">
       <DependentUpon>201709251854322_AddedWholeSalePriceInItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709251907509_AddedBrandNameInItem.resx">
+      <DependentUpon>201709251907509_AddedBrandNameInItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

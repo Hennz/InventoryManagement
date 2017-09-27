@@ -38,25 +38,26 @@
                 <ColumnDefinition Width="100"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="1" Grid.Row="0" Style="{StaticResource LabelStyle}" Content="First Name"/>
-            <Label Grid.Column="1" Grid.Row="1" Style="{StaticResource LabelStyle}" Content="Last Name"/>
-            <Label Grid.Column="1" Grid.Row="2" Style="{StaticResource LabelStyle}" Content="Username"/>
-            <Label Grid.Column="1" Grid.Row="3" Style="{StaticResource LabelStyle}" Content="Password"/>
-            <Label Grid.Column="1" Grid.Row="4" Style="{StaticResource LabelStyle}" Content="Confirm Password"/>
-            <Label Grid.Column="1" Grid.Row="5" Style="{StaticResource LabelStyle}" Content="Phone Number"/>
-            <Label Grid.Column="1" Grid.Row="6" Style="{StaticResource LabelStyle}" Content="Email"/>
-            <Label Grid.Column="1" Grid.Row="7" Style="{StaticResource LabelStyle}" Content="Address"/>
-            <Label Grid.Column="1" Grid.Row="8" Style="{StaticResource LabelStyle}" Content="Role"/>
+            <Label Grid.Column="1" Grid.Row="0" Style="{StaticResource LabelStyle}" Content="Barcode"/>
+            <Label Grid.Column="1" Grid.Row="1" Style="{StaticResource LabelStyle}" Content="Product Name"/>
+            <Label Grid.Column="1" Grid.Row="2" Style="{StaticResource LabelStyle}" Content="Brand Name"/>
+            <Label Grid.Column="1" Grid.Row="3" Style="{StaticResource LabelStyle}" Content="Unit Of Measurement"/>
+            <Label Grid.Column="1" Grid.Row="4" Style="{StaticResource LabelStyle}" Content="Stock/Quantity"/>
+            <Label Grid.Column="1" Grid.Row="5" Style="{StaticResource LabelStyle}" Content="Selling Price Rs."/>
+            <Label Grid.Column="1" Grid.Row="6" Style="{StaticResource LabelStyle}" Content="Wholesale Price Rs."/>
+            <Label Grid.Column="1" Grid.Row="7" Style="{StaticResource LabelStyle}" Content="Product Description"/>
+            <!--<Label Grid.Column="1" Grid.Row="8" Style="{StaticResource LabelStyle}" Content="Role"/>-->
 
-            <TextBox     Grid.Column="2" Grid.Row="0" Style="{StaticResource TextBoxStyle}"     />
-            <TextBox     Grid.Column="2" Grid.Row="1" Style="{StaticResource TextBoxStyle}"     />
-            <TextBox     Grid.Column="2" Grid.Row="2" Style="{StaticResource TextBoxStyle}"     />
-            <PasswordBox Grid.Column="2" Grid.Row="3" Style="{StaticResource PasswordBoxStyle}" />
-            <PasswordBox Grid.Column="2" Grid.Row="4" Style="{StaticResource PasswordBoxStyle}" />
-            <TextBox     Grid.Column="2" Grid.Row="5" Style="{StaticResource TextBoxStyle}"     />
-            <TextBox     Grid.Column="2" Grid.Row="6" Style="{StaticResource TextBoxStyle}"     />
-            <TextBox     Grid.Column="2" Grid.Row="7" Style="{StaticResource TextBoxStyle}"     />
-            <ComboBox    Grid.Column="2" Grid.Row="8" Style="{StaticResource ComboBoxStyle}"    />
+            <TextBox Grid.Column="2" Grid.Row="0" Style="{StaticResource TextBoxStyle}" Name="tbxBarcode"    />
+            <TextBox Grid.Column="2" Grid.Row="1" Style="{StaticResource TextBoxStyle}" Name="tbxProductName"    />
+            <TextBox Grid.Column="2" Grid.Row="2" Style="{StaticResource TextBoxStyle}" Name="tbxBrandName"/>
+            <TextBox Grid.Column="2" Grid.Row="3" Style="{StaticResource TextBoxStyle}" Name="tbxUnit"/>
+            <TextBox Grid.Column="2" Grid.Row="4" Style="{StaticResource TextBoxStyle}" Name="tbxStock"/>
+            <TextBox Grid.Column="2" Grid.Row="5" Style="{StaticResource TextBoxStyle}" Name="tbxSellingPrice"    />
+            <TextBox Grid.Column="2" Grid.Row="6" Style="{StaticResource TextBoxStyle}" Name="tbxWholeSalePrice"    />
+            <TextBox Grid.Column="2" Grid.Row="7" Style="{StaticResource TextBoxStyle}" Name="tbxDescription"    />
+
+            <ComboBox Grid.Column="4" Grid.Row="3" Width="60" SelectedIndex="0" Style="{StaticResource ComboBoxStyle}" Name="comboBoxUnit"   />
 
             <Label Grid.Column="3" Grid.Row="3" Name="labelPasswordPolicy" Content="Atleast 1 digit.&#xA;Total 8 letters." Foreground="Red" Visibility="Hidden"/>
 
@@ -70,7 +71,38 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Content="Reset" Style="{StaticResource ButtonStyle}" Name="btnReset" Click="btnReset_Click"/>
-            <Button Grid.Column="1" Content="Submit" Name="btnSubmit" Style="{StaticResource ButtonStyle}" Click="btnSubmit_Click"/>
+            <Button Grid.Column="1" Content="Submit" Name="btnSubmit" Click="btnSubmit_Click">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=tbxBarcode, Path=Text, UpdateSourceTrigger=PropertyChanged}" Value="">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ElementName=tbxProductName, Path=Text, UpdateSourceTrigger=PropertyChanged}" Value="">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ElementName=tbxBrandName, Path=Text, UpdateSourceTrigger=PropertyChanged}" Value="">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ElementName=tbxUnit, Path=Text, UpdateSourceTrigger=PropertyChanged}" Value="">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ElementName=tbxStock, Path=Text, UpdateSourceTrigger=PropertyChanged}" Value="">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ElementName=tbxSellingPrice, Path=Text, UpdateSourceTrigger=PropertyChanged}" Value="">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ElementName=tbxWholeSalePrice, Path=Text, UpdateSourceTrigger=PropertyChanged}" Value="">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ElementName=tbxDescription, Path=Text, UpdateSourceTrigger=PropertyChanged}" Value="">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
         </Grid>
     </Grid>
 </Window>

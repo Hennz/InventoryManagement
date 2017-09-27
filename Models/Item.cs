@@ -10,6 +10,7 @@ namespace InventoryManagement.Models
     {
         public int ItemId { get; set; }
         public string Name { get; set; }
+        public string BrandName { get; set; }
         public string Description { get; set; }
         //Unit for measurement of the item 
         public string Unit { get; set; }

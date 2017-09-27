@@ -27,12 +27,13 @@ namespace InventoryManagement.Views
         {
             UserRegistration addCashier = new UserRegistration();
 
-            addCashier.Show();
+            addCashier.ShowDialog();
         }
 
         private void btnAddProducts_Click(object sender, RoutedEventArgs e)
         {
-
+            AddProduct addProduct = new AddProduct();
+            addProduct.ShowDialog();
         }
     }
 }

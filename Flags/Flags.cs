@@ -32,5 +32,7 @@ namespace InventoryManagement.Flags
             Unpaid=0,
             PartiallyPaid=2
         }
+
+        
     }
 }

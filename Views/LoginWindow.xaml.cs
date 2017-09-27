@@ -66,6 +66,7 @@ namespace InventoryManagement.Views
                 {
                     AdminHome adminHome = new AdminHome();
                     adminHome.Show();
+                    this.Close();
                 }
                 else
                 {
