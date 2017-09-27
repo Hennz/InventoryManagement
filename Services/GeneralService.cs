@@ -30,6 +30,16 @@ namespace InventoryManagement.Services
                     TextBox tb = (TextBox)visualChild;
                     tb.Clear();
                 }
+                if (visualChild is PasswordBox)
+                {
+                    PasswordBox pb = (PasswordBox)visualChild;
+                    pb.Clear();
+                }
+                if (visualChild is ComboBox)
+                {
+                    ComboBox cb = (ComboBox)visualChild;
+                    cb.Text=string.Empty;
+                }
                 TraverseVisualTree(visualChild);
             }
         }

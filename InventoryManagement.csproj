@@ -141,6 +141,7 @@
     <Compile Include="Repositories\SaleRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="ServiceInterfaces\IGeneralService.cs" />
+    <Compile Include="ServiceInterfaces\IItemRepository.cs" />
     <Compile Include="ServiceInterfaces\ILoginValidation.cs" />
     <Compile Include="ServiceInterfaces\IPasswordPolicyValidation.cs" />
     <Compile Include="ServiceInterfaces\IRoleRepository.cs" />

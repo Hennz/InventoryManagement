@@ -1,5 +1,6 @@
 ﻿using InventoryManagement.Context;
 using InventoryManagement.Models;
+using InventoryManagement.Repositories;
 using InventoryManagement.Services;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,8 @@ namespace InventoryManagement.Views
     public partial class AddProduct : Window
     {
         public List<string> ProductUnits = new List<string>(){"gm","kg","lit","ml","meter","cm",};
+        private GeneralService generalService;
+
         public AddProduct()
         {
             InitializeComponent();
@@ -48,7 +51,7 @@ namespace InventoryManagement.Views
             inventoryDBContext.SaveChanges();
 
             //clear all fields
-            GeneralService generalService = new GeneralService();
+            generalService = new GeneralService();
             generalService.TraverseVisualTree(this);
 
             MessageBox.Show("Product added successfully!");
@@ -58,9 +61,37 @@ namespace InventoryManagement.Views
         {
             //clear all fields
 
-            GeneralService generalService = new GeneralService();
+            generalService = new GeneralService();
             generalService.TraverseVisualTree(this);
         }
-        
+
+        private void tbxBarcode_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textbox = sender as TextBox;
+
+            string inputBarcode = textbox.Text;
+
+            InventoryDBContext inventoryDBContext = new InventoryDBContext();
+
+            ItemRepository itemRepository = new ItemRepository();
+
+            var existingItemByBarcode  = itemRepository.GetItemByBarcodeNumber(inventoryDBContext,inputBarcode);
+
+            if (existingItemByBarcode != null)
+            {
+                tbxProductName.Text = existingItemByBarcode.Name;
+                tbxBrandName.Text = existingItemByBarcode.BrandName;
+                tbxUnit.Text = existingItemByBarcode.Unit;
+                tbxStock.Text = existingItemByBarcode.Stock.ToString();
+                tbxSellingPrice.Text = existingItemByBarcode.SellingPrice.ToString();
+                tbxWholeSalePrice.Text = existingItemByBarcode.WholeSalePrice.ToString();
+                tbxDescription.Text = existingItemByBarcode.Description;
+            }
+            else
+            {
+                generalService = new GeneralService();
+                generalService.TraverseVisualTree(this);
+            }
+        }
     }
 }

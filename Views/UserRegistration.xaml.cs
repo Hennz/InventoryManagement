@@ -77,15 +77,9 @@ namespace InventoryManagement.Views
 
         private void btnReset_Click(object sender, RoutedEventArgs e)
         {
-            tbxFirstName.Text = string.Empty;
-            txbLastName.Text = string.Empty;
-            tbxUsername.Text = string.Empty;
-            tbxPassword.Password = string.Empty;
-            tbxConfirmPassword.Password = string.Empty;
-            tbxPhoneNumber.Text = string.Empty;
-            tbxEmail.Text = string.Empty;
-            tbxAddress.Text = string.Empty;
-            comboBoxRoles.Text = string.Empty;
+            //clear all fields
+            GeneralService generalService = new GeneralService();
+            generalService.TraverseVisualTree(this);
         }
 
         private void tbxEmail_TextChanged(object sender, TextChangedEventArgs e)
