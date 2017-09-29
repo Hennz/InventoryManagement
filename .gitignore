@@ -188,3 +188,6 @@ FakesAssemblies/
 bin/Debug/InventoryManagement.pdb
 InventoryManagement.csproj
 bin/Debug/InventoryManagement.pdb
+*.exe
+*.exe
+bin/Debug/InventoryManagement.exe

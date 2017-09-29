@@ -26,8 +26,9 @@ namespace InventoryManagement.Services
             {
                 var visualChild = (Visual)VisualTreeHelper.GetChild(myMainWindow, i);
                 if (visualChild is TextBox)
-                {
+                {                   
                     TextBox tb = (TextBox)visualChild;
+                    if(tb.Name!= "tbxBarcode")
                     tb.Clear();
                 }
                 if (visualChild is PasswordBox)

@@ -25,6 +25,8 @@ namespace InventoryManagement.Views
     {
         public List<string> ProductUnits = new List<string>(){"gm","kg","lit","ml","meter","cm",};
         private GeneralService generalService;
+        private bool isExistingProduct = false;
+        private Item existingItemByBarcode;
 
         public AddProduct()
         {
@@ -35,26 +37,61 @@ namespace InventoryManagement.Views
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            Item item = new Item()
+            ItemRepository itemRepository = new ItemRepository();
+
+
+            if (isExistingProduct)
             {
-                Barcode = tbxBarcode.Text,
-                BrandName = tbxBrandName.Text,
-                Name = tbxProductName.Text,
-                Description = tbxDescription.Text,
-                SellingPrice = float.Parse(tbxSellingPrice.Text),
-                Stock = int.Parse(tbxStock.Text),
-                Unit = tbxUnit.Text + " " + comboBoxUnit.Text,
-                WholeSalePrice = float.Parse(tbxWholeSalePrice.Text),
-            };
-            InventoryDBContext inventoryDBContext = new InventoryDBContext();
-            inventoryDBContext.Items.Add(item);
-            inventoryDBContext.SaveChanges();
+                //Update existing product with new stock
+                    existingItemByBarcode.BrandName = tbxBrandName.Text;
+                    existingItemByBarcode.Name = tbxProductName.Text;
+                    existingItemByBarcode.Description = tbxDescription.Text;
+                    existingItemByBarcode.SellingPrice = float.Parse(tbxSellingPrice.Text);
+                    existingItemByBarcode.Stock = existingItemByBarcode.Stock + int.Parse(tbxStock.Text);//old stock + new stock
+                    existingItemByBarcode.Unit = tbxUnit.Text + " " + comboBoxUnit.Text;
+                    existingItemByBarcode.WholeSalePrice = float.Parse(tbxWholeSalePrice.Text);
+
+
+                using (var context = new InventoryDBContext())
+                {
+                    //3. Mark entity as modified
+                    context.Entry(existingItemByBarcode).State = System.Data.Entity.EntityState.Modified;
+                    context.SaveChanges();
+                }
+                tbxBarcode.Text = string.Empty;
+
+                MessageBox.Show("Product updated successfully!", "APNA SUPER MARKET");
+            }
+            else
+            {
+                //Add new product with new stock
+                Item item = new Item()
+                {
+                    Barcode = tbxBarcode.Text,
+                    BrandName = tbxBrandName.Text,
+                    Name = tbxProductName.Text,
+                    Description = tbxDescription.Text,
+                    SellingPrice = float.Parse(tbxSellingPrice.Text),
+                    Stock = int.Parse(tbxStock.Text),
+                    Unit = tbxUnit.Text + " " + comboBoxUnit.Text,
+                    WholeSalePrice = float.Parse(tbxWholeSalePrice.Text),
+                };
+
+                using (var context = new InventoryDBContext())
+                {
+                    context.Items.Add(item);
+                    context.SaveChanges();
+                }
+                tbxBarcode.Text = string.Empty;
+
+                MessageBox.Show("Product added successfully!", "APNA SUPER MARKET");
+
+            }
 
             //clear all fields
             generalService = new GeneralService();
             generalService.TraverseVisualTree(this);
 
-            MessageBox.Show("Product added successfully!");
         }
 
         private void btnReset_Click(object sender, RoutedEventArgs e)
@@ -63,6 +100,8 @@ namespace InventoryManagement.Views
 
             generalService = new GeneralService();
             generalService.TraverseVisualTree(this);
+
+            isExistingProduct = false;
         }
 
         private void tbxBarcode_TextChanged(object sender, TextChangedEventArgs e)
@@ -75,22 +114,32 @@ namespace InventoryManagement.Views
 
             ItemRepository itemRepository = new ItemRepository();
 
-            var existingItemByBarcode  = itemRepository.GetItemByBarcodeNumber(inventoryDBContext,inputBarcode);
+            existingItemByBarcode  = itemRepository.GetItemByBarcodeNumber(inventoryDBContext,inputBarcode);
 
             if (existingItemByBarcode != null)
             {
                 tbxProductName.Text = existingItemByBarcode.Name;
                 tbxBrandName.Text = existingItemByBarcode.BrandName;
-                tbxUnit.Text = existingItemByBarcode.Unit;
+
+                tbxUnit.Text = existingItemByBarcode.Unit.Split(null)[0].ToString();
+
+                comboBoxUnit.Text = existingItemByBarcode.Unit.Split(null)[1].ToString();
+
                 tbxStock.Text = existingItemByBarcode.Stock.ToString();
                 tbxSellingPrice.Text = existingItemByBarcode.SellingPrice.ToString();
                 tbxWholeSalePrice.Text = existingItemByBarcode.WholeSalePrice.ToString();
                 tbxDescription.Text = existingItemByBarcode.Description;
+
+                isExistingProduct = true;
             }
             else
             {
+                //clear all fields
+
                 generalService = new GeneralService();
                 generalService.TraverseVisualTree(this);
+
+                isExistingProduct = false;
             }
         }
     }
