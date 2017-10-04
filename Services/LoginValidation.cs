@@ -1,4 +1,5 @@
 ﻿using InventoryManagement.Context;
+using InventoryManagement.Models;
 using InventoryManagement.ServiceInterfaces;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace InventoryManagement.Services
             return (user.Username.ToLower() == userName.ToLower() && user.Password == password) ? true : false;
             
         }
+
         public bool IsUsernameAvailable(string username)
         {
             if (string.IsNullOrEmpty(username))

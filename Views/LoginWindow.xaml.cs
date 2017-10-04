@@ -1,4 +1,5 @@
 ﻿using InventoryManagement.Context;
+using InventoryManagement.Repositories;
 using InventoryManagement.ServiceInterfaces;
 using InventoryManagement.Services;
 using SimpleInjector;
@@ -62,19 +63,24 @@ namespace InventoryManagement.Views
 
                 var isValid = loginValidationService.UsernamePasswordValidation(tbUserName.Text.ToString(), tbxPassword.Password.ToString());
 
-                if (isValid)
-                {
-                    AdminHome adminHome = new AdminHome();
-                    adminHome.Show();
-                    this.Close();
-                }
-                else
-                {
-                    //Things which happen before the timer starts
-                    lableWrongPassword.Visibility = Visibility.Visible;
-                    //Start the timer
-                    dispatcherTimer.Start();
-                }
+                var userRepository = new UserRepository();
+
+                var user = userRepository.GetUser(tbUserName.Text.ToString(), tbxPassword.Password.ToString());
+
+                    if (isValid)
+                    {
+                    
+                        AdminHome adminHome = new AdminHome();
+                        adminHome.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        //Things which happen before the timer starts
+                        lableWrongPassword.Visibility = Visibility.Visible;
+                        //Start the timer
+                        dispatcherTimer.Start();
+                    }
             }
             catch(Exception ex)
             {

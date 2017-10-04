@@ -1,5 +1,6 @@
 ﻿// ReSharper disable RedundantUsingDirective
 using System;
+using System.Collections.Generic;
 // ReSharper restore RedundantUsingDirective
 
 namespace InventoryManagement.Models
@@ -17,5 +18,7 @@ namespace InventoryManagement.Models
         public DateTime LastLoginTime { get; set; }
         public bool IsDisabled { get; set; }
         public string Address { get; set; }
+        public virtual ICollection<Role> Roles { get; set; }
+
     }
 }
