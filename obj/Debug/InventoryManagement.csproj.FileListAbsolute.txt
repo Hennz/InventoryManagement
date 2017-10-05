@@ -75,10 +75,10 @@ F:\InventoryManagement\InventoryManagement\obj\Debug\InventoryManagement.g.resou
 F:\InventoryManagement\InventoryManagement\obj\Debug\InventoryManagement.Migrations.Initial.resources
 F:\InventoryManagement\InventoryManagement\obj\Debug\InventoryManagement.Migrations.AddedWholeSalePriceInItem.resources
 F:\InventoryManagement\InventoryManagement\obj\Debug\InventoryManagement.Migrations.AddedBrandNameInItem.resources
-F:\InventoryManagement\InventoryManagement\obj\Debug\InventoryManagement.Migrations.RelationshipRolesAndUsers.resources
-F:\InventoryManagement\InventoryManagement\obj\Debug\InventoryManagement.Migrations.TableUserRoleUpdate.resources
+F:\InventoryManagement\InventoryManagement\obj\Debug\InventoryManagement.Migrations.RevertUserRole.resources
 F:\InventoryManagement\InventoryManagement\obj\Debug\InventoryManagement.Properties.Resources.resources
 F:\InventoryManagement\InventoryManagement\obj\Debug\InventoryManagement.csproj.GenerateResource.Cache
 F:\InventoryManagement\InventoryManagement\obj\Debug\InventoryManagement.csproj.CoreCompileInputs.cache
 F:\InventoryManagement\InventoryManagement\obj\Debug\InventoryManagement.exe
 F:\InventoryManagement\InventoryManagement\obj\Debug\InventoryManagement.pdb
+F:\InventoryManagement\InventoryManagement\obj\Debug\InventoryManagement.csprojResolveAssemblyReference.cache

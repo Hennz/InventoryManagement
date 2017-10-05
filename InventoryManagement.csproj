@@ -123,13 +123,9 @@
     <Compile Include="Migrations\201709251907509_AddedBrandNameInItem.Designer.cs">
       <DependentUpon>201709251907509_AddedBrandNameInItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709292329449_RelationshipRolesAndUsers.cs" />
-    <Compile Include="Migrations\201709292329449_RelationshipRolesAndUsers.Designer.cs">
-      <DependentUpon>201709292329449_RelationshipRolesAndUsers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710041443004_TableUserRoleUpdate.cs" />
-    <Compile Include="Migrations\201710041443004_TableUserRoleUpdate.Designer.cs">
-      <DependentUpon>201710041443004_TableUserRoleUpdate.cs</DependentUpon>
+    <Compile Include="Migrations\201710041628594_RevertUserRole.cs" />
+    <Compile Include="Migrations\201710041628594_RevertUserRole.Designer.cs">
+      <DependentUpon>201710041628594_RevertUserRole.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bill.cs" />
@@ -139,7 +135,6 @@
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Sale.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Models\UserRole.cs" />
     <Compile Include="MySqlConfiguration.cs" />
     <Compile Include="MySqlHistoryContext.cs" />
     <Compile Include="Repositories\RoleRepository.cs" />
@@ -226,11 +221,8 @@
     <EmbeddedResource Include="Migrations\201709251907509_AddedBrandNameInItem.resx">
       <DependentUpon>201709251907509_AddedBrandNameInItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709292329449_RelationshipRolesAndUsers.resx">
-      <DependentUpon>201709292329449_RelationshipRolesAndUsers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710041443004_TableUserRoleUpdate.resx">
-      <DependentUpon>201710041443004_TableUserRoleUpdate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710041628594_RevertUserRole.resx">
+      <DependentUpon>201710041628594_RevertUserRole.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

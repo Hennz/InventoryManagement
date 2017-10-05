@@ -1,5 +1,6 @@
 ﻿using InventoryManagement.Context;
 using InventoryManagement.Models;
+using InventoryManagement.Repositories;
 using InventoryManagement.ServiceInterfaces;
 using System;
 using System.Collections.Generic;
@@ -12,17 +13,19 @@ namespace InventoryManagement.Services
     public class LoginValidation: ILoginValidation
     {
         
-        public bool UsernamePasswordValidation(string userName, string password)
+        public string UsernamePasswordValidation(string userName, string password)
         {
             InventoryDBContext inventoryDBContext = new InventoryDBContext();
+            var roleRepository = new RoleRepository();
 
             if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(password))
                 throw new Exception("Invalid username or password!");
 
             var user = inventoryDBContext.Users.ToList().Where(x=>x.Username.ToLower()==userName.ToLower()).FirstOrDefault();
 
-            return (user.Username.ToLower() == userName.ToLower() && user.Password == password) ? true : false;
-            
+            return (user.Username.ToLower() == userName.ToLower() && user.Password == password) ?
+                roleRepository.GetAllActiveRoles().Where(x => x.RoleId == user.RoleId).FirstOrDefault().Name :
+                "Invalid User!";
         }
 
         public bool IsUsernameAvailable(string username)
@@ -35,5 +38,6 @@ namespace InventoryManagement.Services
 
             return !user;//if user is exist, return false otherwise true
         }
+
     }
 }

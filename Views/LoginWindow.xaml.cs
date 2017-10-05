@@ -61,26 +61,26 @@ namespace InventoryManagement.Views
             {                
                 var loginValidationService = new LoginValidation();
 
-                var isValid = loginValidationService.UsernamePasswordValidation(tbUserName.Text.ToString(), tbxPassword.Password.ToString());
-
-                var userRepository = new UserRepository();
-
-                var user = userRepository.GetUser(tbUserName.Text.ToString(), tbxPassword.Password.ToString());
-
-                    if (isValid)
-                    {
-                    
-                        AdminHome adminHome = new AdminHome();
-                        adminHome.Show();
-                        this.Close();
-                    }
-                    else
-                    {
-                        //Things which happen before the timer starts
-                        lableWrongPassword.Visibility = Visibility.Visible;
-                        //Start the timer
-                        dispatcherTimer.Start();
-                    }
+                string userRole = loginValidationService.UsernamePasswordValidation(tbUserName.Text.ToString(), tbxPassword.Password.ToString());
+                if (userRole == "Admin")
+                {
+                    AdminHome adminHome = new AdminHome();
+                    adminHome.Show();
+                    this.Close();
+                }
+                else if (userRole == "Cashier")
+                {
+                    CashierHome cashierHome = new CashierHome();
+                    cashierHome.Show();
+                    this.Close();
+                }
+                else
+                {
+                    //Things which happen before the timer starts
+                    lableWrongPassword.Visibility = Visibility.Visible;
+                    //Start the timer
+                    dispatcherTimer.Start();
+                }
             }
             catch(Exception ex)
             {
