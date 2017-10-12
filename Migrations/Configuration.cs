@@ -25,13 +25,49 @@ namespace InventoryManagement.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
 
-            User user = new User()
+            User adminUser = new User()
             {
-                AccessFailedCount=0, Address="Wakad, Pune 411057", Email="dipak.a.akhade9192@gmail.com",
-                IsDisabled=false, LastLoginTime=DateTime.Now, PhoneNumber=8007227997, UserId=1,
-                Username ="dipakakhade", Password="password"
+                AccessFailedCount = 0,
+                Address = "Wakad, Pune 411057",
+                Email = "dipak.a.akhade9192@gmail.com",
+                IsDisabled = false,
+                LastLoginTime = DateTime.Now,
+                PhoneNumber = 8007227997,
+                UserId = 1,
+                Username = "dipakakhade",
+                Password = "password",
+                RoleId = 1
             };
-            context.Users.AddOrUpdate(user);
+            User cashierUser = new User()
+            {
+                AccessFailedCount = 0,
+                Address = "Wakad, Pune 411057",
+                Email = "dipak.a.akhade9192@gmail.com",
+                IsDisabled = false,
+                LastLoginTime = DateTime.Now,
+                PhoneNumber = 8007227997,
+                UserId = 2,
+                Username = "dipakakhade1",
+                Password = "password",
+                RoleId = 2
+            };
+
+            Role adminRole = new Role()
+            {
+                Name = "Admin",
+                Description = "Administrator",
+                IsActive = true,
+            };
+            Role cashierRole = new Role()
+            {
+                Name = "Cashier",
+                Description = "Employee as a cashier",
+                IsActive = true,
+            };
+            context.Roles.AddOrUpdate(adminRole);
+            context.Roles.AddOrUpdate(cashierRole);
+            context.Users.AddOrUpdate(adminUser);
+            context.Users.AddOrUpdate(cashierUser);
             context.SaveChanges();
 
         }

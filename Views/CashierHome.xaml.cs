@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,10 @@ namespace InventoryManagement.Views
 
         private void btnBill_Click(object sender, RoutedEventArgs e)
         {
-
+            Billing billing = new Billing();
+            billing.Show();
+            this.Close();
         }
+       
     }
 }
