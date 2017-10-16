@@ -12,12 +12,14 @@ namespace InventoryManagement.Dtos
 
         public string Name { get; set; }
 
-       
+        public int Quantity { get; set; }
         //Unit for measurement of the item 
         public string Unit { get; set; }
-
-
         //Wholesale price
         public float Rate { get; set; }
+
+        public string Discount { get; set; }
+
+        public float Total { get; set; }
     }
 }

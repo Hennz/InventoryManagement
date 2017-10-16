@@ -83,4 +83,6 @@ F:\InventoryManagement\InventoryManagement\obj\Debug\InventoryManagement.exe
 F:\InventoryManagement\InventoryManagement\obj\Debug\InventoryManagement.pdb
 F:\InventoryManagement\InventoryManagement\obj\Debug\Views\Billing.g.cs
 F:\InventoryManagement\InventoryManagement\obj\Debug\Views\Billing.baml
+F:\InventoryManagement\InventoryManagement\obj\Debug\InventoryManagement.Migrations.AddedDiscountColumnInItemTable.resources
+F:\InventoryManagement\InventoryManagement\obj\Debug\InventoryManagement.Migrations.DiscountChangesToFloat.resources
 F:\InventoryManagement\InventoryManagement\obj\Debug\InventoryManagement.csprojResolveAssemblyReference.cache

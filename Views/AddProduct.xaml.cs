@@ -23,7 +23,7 @@ namespace InventoryManagement.Views
     /// </summary>
     public partial class AddProduct : Window
     {
-        public List<string> ProductUnits = new List<string>(){"gm","kg","lit","ml","meter","cm",};
+        public List<string> ProductUnits = new List<string>() { "gm", "kg", "lit", "ml", "meter", "cm","pcs" };
         private GeneralService generalService;
         private bool isExistingProduct = false;
         private Item existingItemByBarcode;
@@ -43,14 +43,14 @@ namespace InventoryManagement.Views
             if (isExistingProduct)
             {
                 //Update existing product with new stock
-                    existingItemByBarcode.BrandName = tbxBrandName.Text;
-                    existingItemByBarcode.Name = tbxProductName.Text;
-                    existingItemByBarcode.Description = tbxDescription.Text;
-                    existingItemByBarcode.SellingPrice = float.Parse(tbxSellingPrice.Text);
-                    existingItemByBarcode.Stock = existingItemByBarcode.Stock + int.Parse(tbxStock.Text);//old stock + new stock
-                    existingItemByBarcode.Unit = tbxUnit.Text + " " + comboBoxUnit.Text;
-                    existingItemByBarcode.WholeSalePrice = float.Parse(tbxWholeSalePrice.Text);
-
+                existingItemByBarcode.BrandName = tbxBrandName.Text;
+                existingItemByBarcode.Name = tbxProductName.Text;
+                existingItemByBarcode.Description = tbxDescription.Text;
+                existingItemByBarcode.SellingPrice = float.Parse(tbxSellingPrice.Text);
+                existingItemByBarcode.Stock = existingItemByBarcode.Stock + int.Parse(tbxStock.Text);//old stock + new stock
+                existingItemByBarcode.Unit = tbxUnit.Text + " " + comboBoxUnit.Text;
+                existingItemByBarcode.WholeSalePrice = float.Parse(tbxWholeSalePrice.Text);
+                existingItemByBarcode.Discount = int.Parse(tbxDiscount.Text);
 
                 using (var context = new InventoryDBContext())
                 {
@@ -75,6 +75,7 @@ namespace InventoryManagement.Views
                     Stock = int.Parse(tbxStock.Text),
                     Unit = tbxUnit.Text + " " + comboBoxUnit.Text,
                     WholeSalePrice = float.Parse(tbxWholeSalePrice.Text),
+                    Discount = float.Parse(tbxDiscount.Text),
                 };
 
                 using (var context = new InventoryDBContext())
@@ -114,7 +115,7 @@ namespace InventoryManagement.Views
 
             ItemRepository itemRepository = new ItemRepository();
 
-            existingItemByBarcode  = itemRepository.GetItemByBarcodeNumber(inventoryDBContext,inputBarcode);
+            existingItemByBarcode = itemRepository.GetItemByBarcodeNumber(inventoryDBContext, inputBarcode);
 
             if (existingItemByBarcode != null)
             {
@@ -129,6 +130,7 @@ namespace InventoryManagement.Views
                 tbxSellingPrice.Text = existingItemByBarcode.SellingPrice.ToString();
                 tbxWholeSalePrice.Text = existingItemByBarcode.WholeSalePrice.ToString();
                 tbxDescription.Text = existingItemByBarcode.Description;
+                tbxDiscount.Text = existingItemByBarcode.Discount.ToString();
 
                 isExistingProduct = true;
             }

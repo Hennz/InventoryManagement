@@ -128,6 +128,14 @@
     <Compile Include="Migrations\201710041628594_RevertUserRole.Designer.cs">
       <DependentUpon>201710041628594_RevertUserRole.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710131542584_AddedDiscountColumnInItemTable.cs" />
+    <Compile Include="Migrations\201710131542584_AddedDiscountColumnInItemTable.Designer.cs">
+      <DependentUpon>201710131542584_AddedDiscountColumnInItemTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710131625234_DiscountChangesToFloat.cs" />
+    <Compile Include="Migrations\201710131625234_DiscountChangesToFloat.Designer.cs">
+      <DependentUpon>201710131625234_DiscountChangesToFloat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bill.cs" />
     <Compile Include="Models\Category.cs" />
@@ -231,6 +239,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710041628594_RevertUserRole.resx">
       <DependentUpon>201710041628594_RevertUserRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710131542584_AddedDiscountColumnInItemTable.resx">
+      <DependentUpon>201710131542584_AddedDiscountColumnInItemTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710131625234_DiscountChangesToFloat.resx">
+      <DependentUpon>201710131625234_DiscountChangesToFloat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

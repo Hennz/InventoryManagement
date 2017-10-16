@@ -15,6 +15,7 @@ namespace InventoryManagement.Models
         //Unit for measurement of the item 
         public string Unit { get; set; }
         public int Stock { get; set; }
+        public float Discount { get; set; }
         public float SellingPrice { get; set; }
         public float WholeSalePrice { get; set; }
         //Status to check availability
